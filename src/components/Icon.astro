@@ -1,0 +1,64 @@
+---
+// Importar estilos del componente
+import "../styles/icon.css";
+// Importar tipo HTMLAttributes para mejores prácticas
+import type { HTMLAttributes } from "astro/types";
+
+// Tipos de iconos disponibles
+type IconName =
+  | "leaf"
+  | "globe"
+  | "handshake"
+  | "construction"
+  | "book"
+  | "phone";
+
+// Interface Props exportada con extensión de HTMLAttributes
+export interface Props extends HTMLAttributes<"svg"> {
+  /** Nombre del icono a mostrar */
+  name: IconName;
+  /** Tamaño del icono en píxeles */
+  size?: number;
+  /** Etiqueta de accesibilidad para el icono */
+  "aria-label"?: string;
+}
+
+const {
+  name,
+  size = 24,
+  class: className,
+  "aria-label": ariaLabel,
+  ...svgProps
+} = Astro.props;
+
+// Mapeo de nombres a componentes SVG con tipado estricto
+const icons: Record<IconName, () => Promise<any>> = {
+  leaf: () => import("../assets/icons/leaf.svg"),
+  globe: () => import("../assets/icons/globe.svg"),
+  handshake: () => import("../assets/icons/handshake.svg"),
+  construction: () => import("../assets/icons/construction.svg"),
+  book: () => import("../assets/icons/book.svg"),
+  phone: () => import("../assets/icons/phone.svg"),
+} as const;
+
+// Validación de icono con mejor error handling
+const IconComponent = icons[name];
+if (!IconComponent) {
+  console.error(
+    `Icon "${name}" not found. Available icons:`,
+    Object.keys(icons)
+  );
+  throw new Error(`Icon "${name}" not found`);
+}
+
+const { default: SVGIcon } = await IconComponent();
+---
+
+<SVGIcon
+  width={size}
+  height={size}
+  class={className}
+  aria-label={ariaLabel}
+  role={ariaLabel ? "img" : "presentation"}
+  {...svgProps}
+/>

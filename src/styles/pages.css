@@ -1,0 +1,115 @@
+/* Estilos para páginas específicas */
+
+/* Hero section (página de inicio) */
+.hero {
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-lg);
+  font-weight: 500;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-text);
+}
+
+.hero-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.feature {
+  padding: var(--spacing-lg);
+  background-color: var(--color-background-light);
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.feature p {
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+/* Content sections (páginas generales) */
+.content-section {
+  padding: var(--spacing-xl) 0;
+}
+
+.content-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Coming soon cards */
+.coming-soon {
+  background-color: var(--color-background-light);
+  padding: var(--spacing-xl);
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+}
+
+.icon {
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-primary);
+}
+
+.coming-soon p {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+/* Responsive para páginas */
+@media (max-width: 768px) {
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-features {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .coming-soon p {
+    font-size: 1rem;
+  }
+
+  .icon svg {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* Estilos para iconos en las características */
+.feature h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  justify-content: center;
+}
+
+.feature h3 svg {
+  color: var(--color-primary);
+}

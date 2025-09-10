@@ -1,0 +1,37 @@
+---
+// Importaciones organizadas
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Icon from "../components/Icon.astro";
+import "../styles/pages.css";
+---
+
+<Layout
+  title="Proyectos Realizados - SACIFOR"
+  description="Conoce los proyectos ambientales que hemos realizado"
+  currentPath="/proyectos"
+>
+  <Header currentPath="/proyectos" />
+  <main id="main-content" role="main">
+    <section class="content-section" aria-labelledby="projects-title">
+      <div class="content-container">
+        <h1 id="projects-title">Proyectos Realizados</h1>
+        <article class="coming-soon" aria-labelledby="coming-soon-title">
+          <div
+            class="icon"
+            role="img"
+            aria-label="Icono de construcción indicando trabajo en progreso"
+          >
+            <Icon name="construction" size={64} aria-label="En construcción" />
+          </div>
+          <h2 id="coming-soon-title">Muy Pronto</h2>
+          <p>
+            Estamos preparando información detallada sobre nuestros proyectos
+            ambientales. Pronto podrás conocer todas las iniciativas que hemos
+            desarrollado para el cuidado del medio ambiente.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+</Layout>

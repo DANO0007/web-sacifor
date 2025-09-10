@@ -1,11 +1,79 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+// Importaciones organizadas por tipo
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Icon from "../components/Icon.astro";
+import "../styles/pages.css";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Configuración de características centralizada
+const features = [
+  {
+    icon: "leaf" as const,
+    title: "Sostenibilidad",
+    description: "Proyectos que respetan y cuidan nuestro ecosistema",
+    ariaLabel: "Icono de sostenibilidad ambiental",
+  },
+  {
+    icon: "globe" as const,
+    title: "Compromiso Global",
+    description: "Contribuyendo a los objetivos de desarrollo sostenible",
+    ariaLabel: "Icono de compromiso global",
+  },
+  {
+    icon: "handshake" as const,
+    title: "Comunidad",
+    description: "Trabajando juntos por un futuro más verde",
+    ariaLabel: "Icono de trabajo en comunidad",
+  },
+  {
+    icon: "book" as const,
+    title: "Educación",
+    description: "Promoviendo la conciencia ambiental y la conservación",
+    ariaLabel: "Icono de educación ambiental",
+  },
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="Inicio - SACIFOR"
+  description="Bienvenido a SACIFOR, comprometidos con el cuidado del medio ambiente"
+  currentPath="/"
+>
+  <Header currentPath="/" />
+  <main id="main-content" role="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <h1 id="hero-title">Bienvenidos a SACIFOR</h1>
+        <p class="hero-subtitle">
+          Comprometidos con el cuidado y preservación del medio ambiente
+        </p>
+        <p class="hero-description">
+          Somos una organización dedicada a promover la sostenibilidad ambiental
+          a través de proyectos innovadores y educación comunitaria. Trabajamos
+          cada día para construir un futuro más verde y sostenible para las
+          próximas generaciones.
+        </p>
+        <section class="hero-features" aria-labelledby="features-title">
+          <h2 id="features-title" class="sr-only">
+            Nuestras características principales
+          </h2>
+          {
+            features.map((feature) => (
+              <article class="feature">
+                <h3>
+                  <Icon
+                    name={feature.icon}
+                    size={32}
+                    aria-label={feature.ariaLabel}
+                  />
+                  {feature.title}
+                </h3>
+                <p>{feature.description}</p>
+              </article>
+            ))
+          }
+        </section>
+      </div>
+    </section>
+  </main>
 </Layout>

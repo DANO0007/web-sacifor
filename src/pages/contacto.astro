@@ -1,0 +1,38 @@
+---
+// Importaciones organizadas
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Icon from "../components/Icon.astro";
+import "../styles/pages.css";
+---
+
+<Layout
+  title="Contáctanos - SACIFOR"
+  description="Ponte en contacto con SACIFOR para colaborar en proyectos ambientales"
+  currentPath="/contacto"
+>
+  <Header currentPath="/contacto" />
+  <main id="main-content" role="main">
+    <section class="content-section" aria-labelledby="contact-title">
+      <div class="content-container">
+        <h1 id="contact-title">Contáctanos</h1>
+        <article class="coming-soon" aria-labelledby="coming-soon-title">
+          <div
+            class="icon"
+            role="img"
+            aria-label="Icono de teléfono representando comunicación y contacto"
+          >
+            <Icon name="phone" size={64} aria-label="Contacto" />
+          </div>
+          <h2 id="coming-soon-title">Muy Pronto</h2>
+          <p>
+            Estamos preparando nuestros canales de comunicación para que puedas
+            contactarnos fácilmente. Pronto tendrás disponible toda la
+            información de contacto y formas de colaborar con nosotros en
+            proyectos ambientales.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,37 @@
+---
+// Importaciones organizadas
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Icon from "../components/Icon.astro";
+import "../styles/pages.css";
+---
+
+<Layout
+  title="Información Relevante - SACIFOR"
+  description="Información importante sobre medio ambiente y sostenibilidad"
+  currentPath="/informacion"
+>
+  <Header currentPath="/informacion" />
+  <main id="main-content" role="main">
+    <section class="content-section" aria-labelledby="info-title">
+      <div class="content-container">
+        <h1 id="info-title">Información Relevante</h1>
+        <article class="coming-soon" aria-labelledby="coming-soon-title">
+          <div
+            class="icon"
+            role="img"
+            aria-label="Icono de libro representando información y conocimiento"
+          >
+            <Icon name="book" size={64} aria-label="Información" />
+          </div>
+          <h2 id="coming-soon-title">Muy Pronto</h2>
+          <p>
+            Estamos compilando información valiosa sobre temas ambientales,
+            sostenibilidad y conservación. Aquí encontrarás recursos, noticias y
+            datos relevantes para la protección del medio ambiente.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+</Layout>

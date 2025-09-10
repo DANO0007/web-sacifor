@@ -1,0 +1,59 @@
+---
+// Importar estilos del header
+import "../styles/header.css";
+
+// Interface Props exportada siguiendo mejores prácticas
+export interface Props {
+  /** Ruta actual para indicar página activa */
+  currentPath?: string;
+}
+
+const { currentPath = "/" } = Astro.props;
+
+// Configuración de navegación centralizada
+const navigationItems = [
+  { href: "/", label: "Inicio", ariaLabel: "Ir a página de inicio" },
+  {
+    href: "/proyectos",
+    label: "Proyectos Realizados",
+    ariaLabel: "Ver proyectos realizados",
+  },
+  {
+    href: "/informacion",
+    label: "Información Relevante",
+    ariaLabel: "Acceder a información relevante",
+  },
+  {
+    href: "/contacto",
+    label: "Contáctanos",
+    ariaLabel: "Ir a página de contacto",
+  },
+];
+---
+
+<header class="header" role="banner">
+  <div class="header-container">
+    <div class="logo">
+      <a href="/" aria-label="SACIFOR - Ir al inicio">SACIFOR</a>
+    </div>
+    <nav class="nav" role="navigation" aria-label="Navegación principal">
+      <ul class="nav-list" role="menubar">
+        {
+          navigationItems.map((item) => (
+            <li role="none">
+              <a
+                href={item.href}
+                class:list={["nav-link", { active: currentPath === item.href }]}
+                aria-label={item.ariaLabel}
+                aria-current={currentPath === item.href ? "page" : false}
+                role="menuitem"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

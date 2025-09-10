@@ -1,0 +1,33 @@
+/* Estilos para el componente Icon */
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+/* Asegurar que los iconos sean accesibles */
+svg[role="img"] {
+  pointer-events: none;
+}
+
+/* Estados de hover para iconos interactivos */
+a svg,
+button svg {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+a:hover svg,
+button:hover svg {
+  transform: scale(1.05);
+}
+
+/* Estilos para iconos en diferentes contextos */
+.feature svg {
+  margin-right: var(--spacing-xs);
+  color: var(--color-primary);
+}
+
+.coming-soon svg {
+  color: var(--color-primary);
+}

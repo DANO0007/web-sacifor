@@ -1,9 +1,9 @@
 /* Variables CSS globales */
 :root {
-  --color-primary: #2d7d32;
+  --color-primary: #3e8002;
   --color-primary-light: #4caf50;
-  --color-text: #333;
-  --color-text-light: #666;
+  --color-text: #3e2914;
+  --color-text-light: #7b643a;
   --color-background: #ffffff;
   --color-background-light: #f8f9fa;
   --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;

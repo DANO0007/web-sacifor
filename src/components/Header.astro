@@ -1,6 +1,8 @@
 ---
 // Importar estilos del header
 import "../styles/header.css";
+import { Image } from "astro:assets";
+import logo from "../assets/logo-horizontal.png";
 
 // Interface Props exportada siguiendo mejores prácticas
 export interface Props {
@@ -34,7 +36,9 @@ const navigationItems = [
 <header class="header" role="banner">
   <div class="header-container">
     <div class="logo">
-      <a href="/" aria-label="SACIFOR - Ir al inicio">SACIFOR</a>
+      <a href="/" aria-label="SACIFOR - Ir al inicio">
+        <Image src={logo} alt="Logo SACIFOR" width={210} priority />
+      </a>
     </div>
     <nav class="nav" role="navigation" aria-label="Navegación principal">
       <ul class="nav-list" role="menubar">

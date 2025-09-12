@@ -1,36 +1,160 @@
 ---
-// Importaciones organizadas
+// Importaciones organizadas siguiendo mejores prácticas de Astro
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Icon from "../components/Icon.astro";
 import "../styles/pages.css";
+
+// Configuración de servicios organizados por categorías
+const serviceCategories = [
+  {
+    title: "Consultoría Ambiental",
+    icon: "leaf" as const,
+    services: [
+      "Manifestaciones de Impacto Ambiental (Regional, Particular y Estatal)",
+      "Dictámenes municipales en materia ambiental",
+      "Estudios Técnicos Justificativos para Cambio de Uso de Suelo en terrenos forestales",
+      "Cumplimiento de condicionantes ambientales ante la autoridad",
+    ],
+  },
+  {
+    title: "Estudios Especializados",
+    icon: "globe" as const,
+    services: [
+      "Atlas de riesgo municipal",
+      "Ordenamiento territorial",
+      "Estudios hidrológicos e hidráulicos",
+      "Balances hidrológicos",
+    ],
+  },
+  {
+    title: "Estudios y Proyectos Ambientales",
+    icon: "leaf" as const,
+    services: [
+      "Saneamiento mediante ecotecnias",
+      "Conservación y uso sustentable de suelo y agua",
+      "Tecnificación de sistemas de riego",
+      "Restauración de cuerpos de agua",
+    ],
+  },
+  {
+    title: "Proyectos de Obras Hidráulicas",
+    icon: "handshake" as const,
+    services: [
+      "Sistemas de agua potable y protección de fuentes",
+      "Bordos de tierra compactada y ollas de captación de agua pluvial",
+      "Presas de mampostería, muros de gaviones y tanques elevados",
+      "Pozos para agua potable y riego",
+      "Sistemas de conducción y riego",
+      "Ecotecnias para cosecha de lluvia",
+      "Aplicación de sistemas de energía solar para el abastecimiento de agua",
+    ],
+  },
+  {
+    title: "Manejo Integrado de Cuencas",
+    icon: "globe" as const,
+    services: [
+      "Diagnósticos participativos de cuencas",
+      "Diseño e implementación de planes de manejo",
+      "Obras y prácticas de conservación de suelo y restauración ambiental",
+      "Ordenamiento comunitario",
+    ],
+  },
+  {
+    title: "Asesoría a Municipios",
+    icon: "handshake" as const,
+    services: [
+      "Sistema de Gestión Ambiental Municipal",
+      "Plan de Ordenamiento Territorial Municipal",
+      "Plan Municipal de Desarrollo",
+      "Manejo integral de residuos sólidos urbanos",
+      "Asesoría en impacto ambiental",
+    ],
+  },
+  {
+    title: "Otros Estudios y Proyectos",
+    icon: "construction" as const,
+    services: [
+      "Levantamientos topográficos",
+      "Mecánica de suelos",
+      "Infraestructura de agua potable y alcantarillado",
+      "Plantas de tratamiento de aguas residuales",
+    ],
+  },
+];
+
+const title = "Proyectos Realizados - SACIFOR";
+const description =
+  "Conoce nuestros servicios y proyectos en consultoría ambiental, estudios especializados, obras hidráulicas y manejo de cuencas.";
 ---
 
-<Layout
-  title="Proyectos Realizados - SACIFOR"
-  description="Conoce los proyectos ambientales que hemos realizado"
-  currentPath="/proyectos"
->
+<Layout title={title} description={description} currentPath="/proyectos">
   <Header currentPath="/proyectos" />
   <main id="main-content" role="main">
+    <!-- Hero Section -->
     <section class="content-section" aria-labelledby="projects-title">
       <div class="content-container">
-        <h1 id="projects-title">Proyectos Realizados</h1>
-        <article class="coming-soon" aria-labelledby="coming-soon-title">
-          <div
-            class="icon"
-            role="img"
-            aria-label="Icono de construcción indicando trabajo en progreso"
+        <h1 id="projects-title" class="section-title">Proyectos Realizados</h1>
+        <p class="hero-description">
+          Con más de una década de experiencia, hemos desarrollado estudios y
+          proyectos en temas clave para la conservación y restauración
+          ambiental.
+        </p>
+      </div>
+    </section>
+
+    <!-- Servicios por Categorías -->
+    <section class="services-categories" aria-labelledby="categories-title">
+      <div class="content-container">
+        <h2 id="categories-title" class="sr-only">Categorías de Servicios</h2>
+        <div class="content-grid">
+          {
+            serviceCategories.map((category) => (
+              <article class="content-card">
+                <div class="card-icon">
+                  <Icon
+                    name={category.icon}
+                    size={40}
+                    aria-label={`Icono de ${category.title}`}
+                  />
+                </div>
+                <h3>{category.title}</h3>
+                <ul class="services-list">
+                  {category.services.map((service) => (
+                    <li>{service}</li>
+                  ))}
+                </ul>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="content-container">
+        <h2 id="cta-title">¿Necesitas alguno de estos servicios?</h2>
+        <p class="cta-description">
+          Contáctanos para recibir asesoría especializada y desarrollar
+          soluciones técnicas adaptadas a tus necesidades.
+        </p>
+        <div class="cta-buttons">
+          <a
+            href="/contacto"
+            class="cta-button primary"
+            aria-label="Contactar con SACIFOR para servicios especializados"
           >
-            <Icon name="construction" size={64} aria-label="En construcción" />
-          </div>
-          <h2 id="coming-soon-title">Muy Pronto</h2>
-          <p>
-            Estamos preparando información detallada sobre nuestros proyectos
-            ambientales. Pronto podrás conocer todas las iniciativas que hemos
-            desarrollado para el cuidado del medio ambiente.
-          </p>
-        </article>
+            Solicitar Información
+          </a>
+          <a
+            href="/informacion"
+            class="cta-button secondary"
+            aria-label="Ver más información sobre SACIFOR"
+          >
+            Conocer Más
+          </a>
+        </div>
       </div>
     </section>
   </main>

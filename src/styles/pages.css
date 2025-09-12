@@ -5,6 +5,7 @@
   padding: var(--spacing-xl) 0;
   text-align: center;
   background: linear-gradient(135deg, var(--color-background) 0%, var(--color-background-light) 100%);
+  /* background-color: var(--color-background-light); */
 }
 
 .hero-content {
@@ -65,9 +66,9 @@
 
 /* Estilo base para todas las cards */
 .content-card {
-  /* Layout */
-  flex: 1 1 280px;
-  max-width: 350px;
+  /* Layout - Ajustado para igualar ancho de mission/vision cards */
+  flex: 1 1 380px;
+  max-width: 400px;
   
   /* Spacing */
   padding: var(--spacing-lg);
@@ -109,6 +110,37 @@
   color: var(--color-text-light);
   line-height: 1.6;
   font-size: 0.95rem;
+}
+
+/* Listas de servicios en proyectos */
+.services-categories {
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-background-light) 100%);
+  padding: var(--spacing-xl) 0;
+}
+
+.services-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-sm) 0 0 0;
+  text-align: left;
+}
+
+.services-list li {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-xs);
+  padding-left: var(--spacing-md);
+  position: relative;
+}
+
+.services-list li::before {
+  content: "•";
+  color: var(--color-primary);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 /* Servicios Clave específicos */

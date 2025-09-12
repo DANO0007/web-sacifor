@@ -148,6 +148,86 @@
   margin-top: var(--spacing-xl);
 }
 
+/* Información Institucional */
+.institutional-info {
+  background-color: var(--color-background-light);
+  padding: var(--spacing-xl) 0;
+}
+
+/* Talleres y Cursos */
+.workshops-section {
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-background-light) 100%);
+  padding: var(--spacing-xl) 0;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-lg);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.workshop-level {
+  background-color: var(--color-primary);
+  color: white;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin: var(--spacing-sm) 0;
+  display: inline-block;
+}
+
+/* Cultura Ambiental */
+.environmental-culture {
+  background-color: var(--color-background);
+  padding: var(--spacing-xl) 0;
+}
+
+.culture-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-lg);
+}
+
+.culture-main,
+.culture-events {
+  background-color: var(--color-background-light);
+  padding: var(--spacing-xl);
+  border-radius: 16px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.culture-main:hover,
+.culture-events:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.culture-icon {
+  margin-bottom: var(--spacing-lg);
+}
+
+.culture-main h3,
+.culture-events h3 {
+  font-size: 1.4rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+}
+
+.culture-main p,
+.culture-events p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
 /* About Section */
 .about-section {
   background-color: var(--color-background);
@@ -466,6 +546,25 @@
   .icon svg {
     width: 48px;
     height: 48px;
+  }
+
+  /* Información responsive */
+  .culture-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .culture-main,
+  .culture-events {
+    padding: var(--spacing-lg);
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .workshop-level {
+    font-size: 0.8rem;
   }
 }
 

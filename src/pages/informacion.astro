@@ -1,36 +1,206 @@
 ---
-// Importaciones organizadas
+// Importaciones organizadas siguiendo mejores prácticas de Astro
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Icon from "../components/Icon.astro";
 import "../styles/pages.css";
+
+// Configuración de talleres y cursos
+const workshops = [
+  {
+    title: "Sistemas de Información Geográfica",
+    levels: "Básico e Intermedio",
+    icon: "globe" as const,
+    description: "Manejo de herramientas GIS para análisis territorial",
+  },
+  {
+    title: "Elaboración de Manifestaciones de Impacto Ambiental",
+    levels: "Especializado",
+    icon: "leaf" as const,
+    description: "Metodología para estudios de impacto ambiental",
+  },
+  {
+    title: "Diseño e implementación de inventarios forestales",
+    levels: "Técnico",
+    icon: "leaf" as const,
+    description: "Técnicas de medición y registro forestal",
+  },
+  {
+    title: "Cálculo de erosión hídrica y eólica",
+    levels: "Especializado",
+    icon: "globe" as const,
+    description: "Métodos de evaluación de erosión del suelo",
+  },
+  {
+    title: "Cálculo de escurrimiento e infiltración",
+    levels: "Técnico",
+    icon: "handshake" as const,
+    description: "Análisis hidrológico de cuencas",
+  },
+  {
+    title: "Sistemas de captación de agua de lluvia",
+    levels: "Práctico",
+    icon: "handshake" as const,
+    description: "Tecnologías para aprovechamiento pluvial",
+  },
+];
+
+// Configuración de información institucional basada en el contenido del cliente
+/* const institutionalInfo = [
+  {
+    title: "Por más de una década",
+    content:
+      "Hemos desarrollado estudios y proyectos en temas clave como: Evaluación de impacto ambiental y cambio de uso de suelo, Manejo integral de cuencas, Atlas de riesgo y ordenamiento territorial, Generación de cartografía especializada, Monitoreo de calidad del agua, Manejo de residuos sólidos urbanos, Construcción de infraestructura hidráulica y de saneamiento, entre otros.",
+    icon: "handshake" as const,
+  },
+  {
+    title: "Equipo Multidisciplinario",
+    content:
+      "Aplicación de conocimientos técnicos, científicos y prácticos de un equipo multidisciplinario para brindar soluciones integrales en materia ambiental que promuevan el desarrollo local y regional.",
+    icon: "globe" as const,
+  },
+  {
+    title: "Nuestro Compromiso",
+    content:
+      "Impulsar soluciones técnicas y sostenibles que garanticen el equilibrio entre el desarrollo y el cuidado del medio ambiente.",
+    icon: "leaf" as const,
+  },
+]; */
+
+const title = "Información Relevante - SACIFOR";
+const description =
+  "Talleres especializados, cultura ambiental y información institucional de SACIFOR. Capacitación en SIG, impacto ambiental y gestión de recursos naturales.";
 ---
 
-<Layout
-  title="Información Relevante - SACIFOR"
-  description="Información importante sobre medio ambiente y sostenibilidad"
-  currentPath="/informacion"
->
+<Layout title={title} description={description} currentPath="/informacion">
   <Header currentPath="/informacion" />
   <main id="main-content" role="main">
+    <!-- Hero Section -->
     <section class="content-section" aria-labelledby="info-title">
       <div class="content-container">
-        <h1 id="info-title">Información Relevante</h1>
-        <article class="coming-soon" aria-labelledby="coming-soon-title">
-          <div
-            class="icon"
-            role="img"
-            aria-label="Icono de libro representando información y conocimiento"
+        <h1 id="info-title" class="section-title">Información Relevante</h1>
+        <p class="hero-description">
+          Talleres y cursos especializados, cultura ambiental y eventos
+          relacionados con la gestión ambiental y el desarrollo sustentable.
+        </p>
+      </div>
+    </section>
+
+    <!-- Información Institucional -->
+    <!-- <section class="institutional-info" aria-labelledby="institutional-title">
+      <div class="content-container">
+        <h2 id="institutional-title" class="section-title">
+          Nuestra Trayectoria
+        </h2>
+        <div class="content-grid">
+          {
+            institutionalInfo.map((info) => (
+              <article class="content-card">
+                <div class="card-icon">
+                  <Icon
+                    name={info.icon}
+                    size={40}
+                    aria-label={`Icono de ${info.title}`}
+                  />
+                </div>
+                <h3>{info.title}</h3>
+                <p>{info.content}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Talleres y Cursos -->
+    <section class="workshops-section" aria-labelledby="workshops-title">
+      <div class="content-container">
+        <h2 id="workshops-title" class="section-title">Talleres y Cursos</h2>
+        <p class="section-subtitle">Programas de capacitación que ofrecemos.</p>
+        <div class="content-grid">
+          {
+            workshops.map((workshop) => (
+              <article class="content-card">
+                <div class="card-icon">
+                  <Icon
+                    name={workshop.icon}
+                    size={32}
+                    aria-label={`Icono de ${workshop.title}`}
+                  />
+                </div>
+                <h3>{workshop.title}</h3>
+                <div class="workshop-level">
+                  <strong>Nivel:</strong> {workshop.levels}
+                </div>
+                {/* <p>{workshop.description}</p> */}
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Cultura Ambiental -->
+    <section class="environmental-culture" aria-labelledby="culture-title">
+      <div class="content-container">
+        <h2 id="culture-title" class="section-title">Cultura Ambiental</h2>
+        <div class="culture-content">
+          <article class="culture-main">
+            <div class="card-icon culture-icon">
+              <Icon
+                name="leaf"
+                size={48}
+                aria-label="Icono de cultura ambiental"
+              />
+            </div>
+            <h3>Espacio de Sensibilización y Educación</h3>
+            <p>
+              Espacio de sensibilización y educación para comunidades, empresas
+              y gobiernos locales, enfocado en la conciencia ecológica, el uso
+              sostenible de recursos y la participación ciudadana en la
+              protección del medio ambiente.
+            </p>
+          </article>
+
+          <article class="culture-events">
+            <div class="card-icon">
+              <Icon name="book" size={48} aria-label="Icono de eventos" />
+            </div>
+            <h3>Eventos y Actividades</h3>
+            <p>
+              Difusión de actividades, foros, talleres y encuentros relacionados
+              con la gestión ambiental, el ordenamiento territorial y el
+              desarrollo sustentable.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="content-container">
+        <h2 id="cta-title">¿Necesitas capacitación especializada?</h2>
+        <p class="cta-description">
+          Contáctanos para obtener información sobre nuestros talleres y
+          programas de cultura ambiental.
+        </p>
+        <div class="cta-buttons">
+          <a
+            href="/contacto"
+            class="cta-button primary"
+            aria-label="Contactar para información sobre talleres y cursos"
           >
-            <Icon name="book" size={64} aria-label="Información" />
-          </div>
-          <h2 id="coming-soon-title">Muy Pronto</h2>
-          <p>
-            Estamos compilando información valiosa sobre temas ambientales,
-            sostenibilidad y conservación. Aquí encontrarás recursos, noticias y
-            datos relevantes para la protección del medio ambiente.
-          </p>
-        </article>
+            Inscribirse a Talleres
+          </a>
+          <a
+            href="/proyectos"
+            class="cta-button secondary"
+            aria-label="Ver proyectos realizados por SACIFOR"
+          >
+            Ver Proyectos
+          </a>
+        </div>
       </div>
     </section>
   </main>

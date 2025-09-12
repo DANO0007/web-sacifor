@@ -228,6 +228,43 @@
   color: var(--color-text);
 }
 
+/* Contacto - Información de Contacto */
+.contact-info-section {
+  background-color: var(--color-background-light);
+  padding: var(--spacing-xl) 0;
+}
+
+.contact-link {
+  display: inline-block;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 8px;
+  border: 2px solid var(--color-primary);
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+  background-color: var(--color-primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 125, 50, 0.2);
+}
+
+.contact-link:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Contacto - Servicios */
+.contact-services {
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-background-light) 100%);
+  padding: var(--spacing-xl) 0;
+}
+
 /* About Section */
 .about-section {
   background-color: var(--color-background);
@@ -565,6 +602,12 @@
 
   .workshop-level {
     font-size: 0.8rem;
+  }
+
+  /* Contacto responsive */
+  .contact-link {
+    font-size: 1rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
   }
 }
 

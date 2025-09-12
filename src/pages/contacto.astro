@@ -1,37 +1,110 @@
 ---
-// Importaciones organizadas
+// Importaciones organizadas siguiendo mejores prácticas de Astro
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Icon from "../components/Icon.astro";
 import "../styles/pages.css";
+
+// Configuración de información de contacto del cliente
+const contactInfo = [
+  {
+    type: "phone",
+    label: "Teléfono Principal",
+    value: "951 131 6817",
+    href: "tel:+529511316817",
+    icon: "phone" as const,
+  },
+  {
+    type: "phone",
+    label: "Teléfono Alternativo",
+    value: "951 243 9799",
+    href: "tel:+529512439799",
+    icon: "phone" as const,
+  },
+  {
+    type: "email",
+    label: "Correo Electrónico",
+    value: "sacifor1@gmail.com",
+    href: "mailto:sacifor1@gmail.com",
+    icon: "book" as const,
+  },
+];
+
+const title = "Contáctanos - SACIFOR";
+const description =
+  "Contacta con SACIFOR para consultoría ambiental, proyectos hidráulicos y capacitación especializada. Teléfonos: 951 243 9799, 951 1316817";
 ---
 
-<Layout
-  title="Contáctanos - SACIFOR"
-  description="Ponte en contacto con SACIFOR para colaborar en proyectos ambientales"
-  currentPath="/contacto"
->
+<Layout title={title} description={description} currentPath="/contacto">
   <Header currentPath="/contacto" />
   <main id="main-content" role="main">
+    <!-- Hero Section -->
     <section class="content-section" aria-labelledby="contact-title">
       <div class="content-container">
-        <h1 id="contact-title">Contáctanos</h1>
-        <article class="coming-soon" aria-labelledby="coming-soon-title">
-          <div
-            class="icon"
-            role="img"
-            aria-label="Icono de teléfono representando comunicación y contacto"
+        <h1 id="contact-title" class="section-title">
+          ¿En qué podemos ayudarte?
+        </h1>
+        <p class="hero-description">
+          Nuestros principales servicios disponibles para consulta.
+        </p>
+      </div>
+    </section>
+
+    <!-- Información de Contacto -->
+    <section class="contact-info-section" aria-labelledby="contact-info-title">
+      <div class="content-container">
+        <h2 id="contact-info-title" class="section-title">
+          Información de Contacto
+        </h2>
+        <div class="content-grid">
+          {
+            contactInfo.map((contact) => (
+              <article class="content-card">
+                <div class="card-icon">
+                  <Icon
+                    name={contact.icon}
+                    size={40}
+                    aria-label={`Icono de ${contact.label}`}
+                  />
+                </div>
+                <h3>{contact.label}</h3>
+                <a
+                  href={contact.href}
+                  class="contact-link"
+                  aria-label={`${contact.label}: ${contact.value}`}
+                >
+                  {contact.value}
+                </a>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="content-container">
+        <h2 id="cta-title">¿Listo para comenzar tu proyecto?</h2>
+        <p class="cta-description">
+          Desarrollo que respeta el ambiente. Contáctanos hoy mismo.
+        </p>
+        <div class="cta-buttons">
+          <a
+            href="tel:+529512439799"
+            class="cta-button primary"
+            aria-label="Llamar al teléfono principal de SACIFOR"
           >
-            <Icon name="phone" size={64} aria-label="Contacto" />
-          </div>
-          <h2 id="coming-soon-title">Muy Pronto</h2>
-          <p>
-            Estamos preparando nuestros canales de comunicación para que puedas
-            contactarnos fácilmente. Pronto tendrás disponible toda la
-            información de contacto y formas de colaborar con nosotros en
-            proyectos ambientales.
-          </p>
-        </article>
+            Llamar Ahora
+          </a>
+          <a
+            href="mailto:sacifor1@gmail.com"
+            class="cta-button secondary"
+            aria-label="Enviar correo electrónico a SACIFOR"
+          >
+            Enviar Email
+          </a>
+        </div>
       </div>
     </section>
   </main>

@@ -1,78 +1,248 @@
 ---
-// Importaciones organizadas por tipo
+// Importaciones organizadas por tipo siguiendo mejores prácticas de Astro
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Icon from "../components/Icon.astro";
 import "../styles/pages.css";
 
-// Configuración de características centralizada
-const features = [
+// Configuración de servicios clave centralizada
+const keyServices = [
   {
     icon: "leaf" as const,
-    title: "Sostenibilidad",
-    description: "Proyectos que respetan y cuidan nuestro ecosistema",
-    ariaLabel: "Icono de sostenibilidad ambiental",
+    title: "Impacto ambiental y cambio de uso de suelo",
+    ariaLabel: "Icono de impacto ambiental",
   },
   {
     icon: "globe" as const,
-    title: "Compromiso Global",
-    description: "Contribuyendo a los objetivos de desarrollo sostenible",
-    ariaLabel: "Icono de compromiso global",
+    title: "Atlas de riesgo y ordenamiento territorial",
+    ariaLabel: "Icono de ordenamiento territorial",
   },
   {
     icon: "handshake" as const,
-    title: "Comunidad",
-    description: "Trabajando juntos por un futuro más verde",
-    ariaLabel: "Icono de trabajo en comunidad",
+    title: "Proyectos de agua potable, saneamiento y recarga hídrica",
+    ariaLabel: "Icono de proyectos hidráulicos",
+  },
+  {
+    icon: "handshake" as const,
+    title: "Manejo de cuencas y conservación de suelos.",
+    ariaLabel: "Icono de cuencas y conservación de suelos",
   },
   {
     icon: "book" as const,
-    title: "Educación",
-    description: "Promoviendo la conciencia ambiental y la conservación",
-    ariaLabel: "Icono de educación ambiental",
+    title: "Capacitación y talleres especializados",
+    ariaLabel: "Icono de capacitación",
+  },
+];
+
+// Configuración de valores corporativos
+const values = [
+  { name: "Honestidad", icon: "handshake" as const },
+  { name: "Innovación", icon: "leaf" as const },
+  { name: "Confiabilidad", icon: "globe" as const },
+  { name: "Responsabilidad ambiental", icon: "leaf" as const },
+  { name: "Respeto", icon: "handshake" as const },
+  { name: "Integración", icon: "globe" as const },
+  { name: "Efectividad", icon: "leaf" as const },
+  { name: "Equidad", icon: "handshake" as const },
+];
+
+// Configuración de "¿Por qué elegirnos?"
+const whyChooseUs = [
+  {
+    icon: "handshake" as const,
+    title: "Contamos con una amplia experiencia",
+    ariaLabel: "Icono de experiencia",
+  },
+  {
+    icon: "globe" as const,
+    title: "Equipo multidisciplinario altamente capacitado",
+    ariaLabel: "Icono de equipo multidisciplinario",
+  },
+  {
+    icon: "leaf" as const,
+    title: "Soluciones prácticas, innovadoras y sostenibles",
+    ariaLabel: "Icono de soluciones innovadoras",
+  },
+  {
+    icon: "book" as const,
+    title: "Acompañamiento en trámites y cumplimiento normativo",
+    ariaLabel: "Icono de acompañamiento",
   },
 ];
 ---
 
 <Layout
-  title="Inicio - SACIFOR"
-  description="Bienvenido a SACIFOR, comprometidos con el cuidado del medio ambiente"
+  title="SACIFOR - Soluciones ambientales para un futuro sostenible"
+  description="SACIFOR SCR y Asociados: consultoría ambiental, estudios especializados y proyectos de infraestructura sustentable desde 2013"
   currentPath="/"
 >
   <Header currentPath="/" />
   <main id="main-content" role="main">
+    <!-- Hero Section -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-content">
-        <h1 id="hero-title">Bienvenidos a SACIFOR</h1>
+        <h1 id="hero-title">SACIFOR</h1>
         <p class="hero-subtitle">
-          Comprometidos con el cuidado y preservación del medio ambiente
+          Soluciones ambientales para un futuro sostenible
         </p>
         <p class="hero-description">
-          Somos una organización dedicada a promover la sostenibilidad ambiental
-          a través de proyectos innovadores y educación comunitaria. Trabajamos
-          cada día para construir un futuro más verde y sostenible para las
-          próximas generaciones.
+          En SACIFOR ayudamos a empresas, comunidades y gobiernos a gestionar de
+          forma responsable sus recursos naturales. Ofrecemos consultoría
+          ambiental, estudios especializados y proyectos de infraestructura
+          sustentable que equilibran desarrollo y cuidado del medio ambiente.
         </p>
-        <section class="hero-features" aria-labelledby="features-title">
-          <h2 id="features-title" class="sr-only">
-            Nuestras características principales
+
+        <!-- Servicios Clave -->
+        <section class="key-services" aria-labelledby="services-title">
+          <h2 id="services-title" class="section-title">
+            Nuestros servicios clave
           </h2>
+          <div class="content-grid">
+            {
+              keyServices.map((service) => (
+                <article class="content-card">
+                  <div class="card-icon">
+                    <Icon
+                      name={service.icon}
+                      size={40}
+                      aria-label={service.ariaLabel}
+                    />
+                  </div>
+                  <h3>{service.title}</h3>
+                </article>
+              ))
+            }
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ¿Quiénes somos? Section -->
+    <section
+      class="about-section content-section"
+      aria-labelledby="about-title"
+    >
+      <div class="content-container">
+        <h2 id="about-title" class="section-title">¿Quiénes somos?</h2>
+        <div class="about-content">
+          <p class="about-intro">
+            <strong>SACIFOR SCR y Asociados</strong> es una empresa fundada en 2013
+            con el propósito de diseñar, implementar y dar seguimiento a programas
+            y proyectos que contribuyan a la conservación y restauración ambiental,
+            el saneamiento de ríos y cuerpos de agua, el ordenamiento territorial
+            y análisis de riesgos, así como al fortalecimiento de las comunidades
+            en la gestión integral de sus recursos.
+          </p>
+          <p>
+            Nuestro compromiso es impulsar soluciones técnicas y sostenibles que
+            garanticen el equilibrio entre el desarrollo y el cuidado del medio
+            ambiente.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Misión y Visión Section -->
+    <section class="mission-vision" aria-labelledby="mission-vision-title">
+      <div class="content-container">
+        <h2 id="mission-vision-title" class="sr-only">Misión y Visión</h2>
+        <div class="mission-vision-grid">
+          <article class="mission-card">
+            <div class="card-icon">
+              <Icon name="globe" size={48} aria-label="Icono de misión" />
+            </div>
+            <h3>Misión</h3>
+            <p>
+              Brindar soluciones integrales en materia ambiental que promuevan
+              el desarrollo local y regional, mediante la aplicación de
+              conocimientos técnicos, científicos y prácticos de un equipo
+              multidisciplinario.
+            </p>
+          </article>
+
+          <article class="vision-card">
+            <div class="card-icon">
+              <Icon name="leaf" size={48} aria-label="Icono de visión" />
+            </div>
+            <h3>Visión</h3>
+            <p>
+              Ser una empresa reconocida a nivel nacional por la calidad de
+              nuestros servicios, la capacidad de respuesta y el mejoramiento
+              continuo, atendiendo de manera efectiva y asertiva las necesidades
+              de nuestros clientes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Valores Section -->
+    <section class="values-section" aria-labelledby="values-title">
+      <div class="content-container">
+        <h2 id="values-title">Nuestros Valores</h2>
+        <div class="values-grid">
           {
-            features.map((feature) => (
-              <article class="feature">
-                <h3>
+            values.map((value) => (
+              <div class="value-item">
+                <Icon
+                  name={value.icon}
+                  size={24}
+                  aria-label={`Icono de ${value.name}`}
+                />
+                <span>{value.name}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ¿Por qué elegirnos? Section -->
+    <section class="why-choose-us content-section" aria-labelledby="why-title">
+      <div class="content-container">
+        <h2 id="why-title" class="section-title">¿Por qué elegirnos?</h2>
+        <div class="content-grid">
+          {
+            whyChooseUs.map((item) => (
+              <article class="content-card">
+                <div class="card-icon">
                   <Icon
-                    name={feature.icon}
+                    name={item.icon}
                     size={32}
-                    aria-label={feature.ariaLabel}
+                    aria-label={item.ariaLabel}
                   />
-                  {feature.title}
-                </h3>
-                <p>{feature.description}</p>
+                </div>
+                <h3>{item.title}</h3>
               </article>
             ))
           }
-        </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="content-container">
+        <h2 id="cta-title">Desarrollo que respeta el ambiente</h2>
+        <p class="cta-description">
+          Conoce más sobre nuestros proyectos y servicios especializados
+        </p>
+        <div class="cta-buttons">
+          <a
+            href="/proyectos"
+            class="cta-button primary"
+            aria-label="Ver nuestros proyectos realizados"
+          >
+            Ver Proyectos
+          </a>
+          <a
+            href="/contacto"
+            class="cta-button secondary"
+            aria-label="Contactar con SACIFOR"
+          >
+            Contáctanos
+          </a>
+        </div>
       </div>
     </section>
   </main>

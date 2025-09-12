@@ -4,44 +4,315 @@
 .hero {
   padding: var(--spacing-xl) 0;
   text-align: center;
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-background-light) 100%);
 }
 
 .hero-content {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+}
+
 .hero-subtitle {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   color: var(--color-text-light);
   margin-bottom: var(--spacing-lg);
   font-weight: 500;
 }
 
 .hero-description {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   line-height: 1.7;
   margin-bottom: var(--spacing-xl);
   color: var(--color-text);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.hero-features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+/* Clase base para secciones con contenido */
+.content-section {
+  padding: var(--spacing-xl) 0;
+}
+
+.content-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-primary);
+  text-align: center;
+}
+
+/* Grid base para cards similares */
+.content-grid {
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+  justify-content: center;
+}
+
+/* Estilo base para todas las cards */
+.content-card {
+  /* Layout */
+  flex: 1 1 280px;
+  max-width: 350px;
+  
+  /* Spacing */
+  padding: var(--spacing-lg);
+  
+  /* Visual */
+  background-color: var(--color-background);
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  
+  /* Typography */
+  text-align: center;
+  
+  /* Animation */
+  transition: all 0.3s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Iconos unificados */
+.card-icon {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+}
+
+/* Títulos de cards */
+.content-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+/* Descripciones de cards */
+.content-card p {
+  color: var(--color-text-light);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Servicios Clave específicos */
+.key-services {
   margin-top: var(--spacing-xl);
 }
 
-.feature {
-  padding: var(--spacing-lg);
+/* About Section */
+.about-section {
+  background-color: var(--color-background);
+}
+
+.about-content {
+  margin-top: var(--spacing-lg);
+}
+
+.about-intro {
+  font-size: 1.15rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text);
+}
+
+.about-section p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Mission & Vision Section */
+.mission-vision {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--color-background-light);
+}
+
+.mission-vision .content-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-lg);
+}
+
+.mission-card,
+.vision-card {
+  background-color: var(--color-background);
+  padding: var(--spacing-xl);
+  border-radius: 16px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.mission-card:hover,
+.vision-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-primary);
+}
+
+.mission-card h3,
+.vision-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+}
+
+.mission-card p,
+.vision-card p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+/* Values Section */
+.values-section {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--color-background);
+}
+
+.values-section .content-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.value-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md);
   background-color: var(--color-background-light);
   border-radius: 8px;
   border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
 }
 
-.feature p {
-  color: var(--color-text-light);
-  line-height: 1.6;
+.value-item:hover {
+  background-color: var(--color-primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.value-item:hover svg {
+  color: white;
+}
+
+.value-item svg {
+  color: var(--color-primary);
+  transition: color 0.3s ease;
+}
+
+.value-item span {
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Why Choose Us Section - Usando clases base */
+.why-choose-us {
+  background-color: var(--color-background-light);
+}
+
+/* Call to Action Section */
+.cta-section {
+  padding: var(--spacing-xl) 0;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: white;
+  text-align: center;
+}
+
+.cta-section .content-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-section h2 {
+  color: white;
+  font-size: 2.2rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.cta-description {
+  font-size: 1.15rem;
+  margin-bottom: var(--spacing-xl);
+  opacity: 0.9;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.cta-button.primary {
+  background-color: white;
+  color: var(--color-primary);
+}
+
+.cta-button.primary:hover {
+  background-color: var(--color-background-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+}
+
+.cta-button.secondary:hover {
+  background-color: white;
+  color: var(--color-primary);
+  transform: translateY(-2px);
 }
 
 /* Content sections (páginas generales) */
@@ -79,19 +350,83 @@
 
 /* Responsive para páginas */
 @media (max-width: 768px) {
+  /* Hero responsive */
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
   .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   .hero-description {
     font-size: 1rem;
   }
 
-  .hero-features {
+  .services-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-md);
   }
 
+  .service-card {
+    padding: var(--spacing-md);
+  }
+
+  /* Mission & Vision responsive */
+  .mission-vision-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .mission-card,
+  .vision-card {
+    padding: var(--spacing-lg);
+  }
+
+  /* Values responsive */
+  .values-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-sm);
+  }
+
+  .value-item {
+    padding: var(--spacing-sm);
+  }
+
+  .value-item span {
+    font-size: 0.8rem;
+  }
+
+  /* Why choose us responsive */
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .why-item {
+    padding: var(--spacing-md);
+  }
+
+  /* CTA responsive */
+  .cta-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .cta-description {
+    font-size: 1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  /* Coming soon responsive */
   .coming-soon p {
     font-size: 1rem;
   }
@@ -99,6 +434,25 @@
   .icon svg {
     width: 48px;
     height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .mission-card h3,
+  .vision-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

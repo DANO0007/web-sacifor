@@ -4,6 +4,8 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Icon from "../components/Icon.astro";
 import "../styles/pages.css";
+import { Image } from "astro:assets";
+import image4 from "../assets/image4.jpg";
 
 // Configuración de servicios organizados por categorías
 const serviceCategories = [
@@ -102,6 +104,15 @@ const description =
         </p>
       </div>
     </section>
+
+    <Image
+      src={image4}
+      alt="Vista aérea de paisaje natural capturada con drone - SACIFOR consultoría ambiental"
+      class="images image4"
+      width={1200}
+      quality={85}
+      loading="lazy"
+    />
 
     <!-- Servicios por Categorías -->
     <section class="services-categories" aria-labelledby="categories-title">

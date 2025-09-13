@@ -40,7 +40,25 @@ const navigationItems = [
         <Image src={logo} alt="Logo SACIFOR" width={210} priority />
       </a>
     </div>
-    <nav class="nav" role="navigation" aria-label="Navegación principal">
+
+    <!-- Botón hamburguesa para móviles -->
+    <button
+      class="hamburger-button"
+      aria-label="Abrir menú de navegación"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+    >
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+
+    <nav
+      class="nav"
+      role="navigation"
+      aria-label="Navegación principal"
+      id="mobile-nav"
+    >
       <ul class="nav-list" role="menubar">
         {
           navigationItems.map((item) => (
@@ -61,3 +79,6 @@ const navigationItems = [
     </nav>
   </div>
 </header>
+
+<!-- Script para el menú hamburguesa -->
+<script src="../scripts/hamburger-menu.js"></script>

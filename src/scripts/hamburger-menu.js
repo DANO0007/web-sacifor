@@ -45,10 +45,21 @@ document.addEventListener("DOMContentLoaded", function () {
   // Event listener para el botón hamburguesa
   hamburgerButton.addEventListener("click", toggleMenu);
 
-  // Cerrar menú cuando se hace clic en un enlace
+  // Cerrar menú solo si es la misma página, dejar que la navegación ocurra naturalmente
   const navLinks = document.querySelectorAll(".nav-link");
   navLinks.forEach((link) => {
-    link.addEventListener("click", closeMenu);
+    link.addEventListener("click", function (event) {
+      // Obtener la ruta actual y la ruta objetivo
+      const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+      const targetPath = link.getAttribute("href").replace(/\/$/, "") || "/";
+
+      if (targetPath === currentPath) {
+        // Solo cerrar si es la misma página (comportamiento normal de SPA)
+        closeMenu();
+      }
+      // Si es diferente página, NO cerrar - dejar que navegue naturalmente
+      // El menú se cerrará automáticamente cuando la nueva página se cargue
+    });
   });
 
   // Cerrar menú al presionar Escape

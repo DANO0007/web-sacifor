@@ -119,6 +119,12 @@
   border-radius: 4px;
 }
 
+.hamburger-button:active {
+  transform: scale(0.95);
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+}
+
 .hamburger-line {
   width: 25px;
   height: 3px;
@@ -186,10 +192,23 @@
     padding: var(--spacing-md);
     border-bottom: 1px solid #f0f0f0;
     font-size: 1.1rem;
+    -webkit-tap-highlight-color: transparent; /* Eliminar highlight azul en iOS */
+    tap-highlight-color: transparent; /* Eliminar highlight azul en Android */
   }
 
-  .nav-link:hover {
+  .nav-link:hover,
+  .nav-link:focus,
+  .nav-link:active {
     background-color: var(--color-background-light);
+    color: var(--color-primary);
+  }
+
+  /* Estados específicos para móviles */
+  .nav-link:active {
+    background-color: var(--color-primary-light);
+    color: white;
+    transform: scale(0.98);
+    transition: all 0.1s ease;
   }
 
   .logo {

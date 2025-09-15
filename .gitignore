@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# client documentation with sensitive information
+DOCUMENTACION_SACIFOR.md

@@ -11,7 +11,40 @@ type IconName =
   | "handshake"
   | "construction"
   | "book"
-  | "phone";
+  | "phone"
+  | "lupa"
+  | "investigacion"
+  | "planta"
+  | "llaveagua"
+  | "montana"
+  | "asesoria"
+  | "engrane"
+  | "bosque"
+  | "mapa"
+  | "maestro"
+  | "confiabilidad"
+  | "efectividad"
+  | "equidad"
+  | "honestidad"
+  | "inovacion"
+  | "integracion"
+  | "respeto"
+  | "responsabilidad"
+  | "equipo"
+  | "experiencia"
+  | "tramite"
+  | "soluciones"
+  | "email"
+  | "mision"
+  | "vision"
+  | "captacion"
+  | "fabrica"
+  | "eolico"
+  | "inventario"
+  | "lluvia"
+  | "geografico"
+  | "educacion"
+  | "calendario";
 
 // Interface Props exportada con extensión de HTMLAttributes
 export interface Props extends HTMLAttributes<"svg"> {
@@ -39,6 +72,39 @@ const icons: Record<IconName, () => Promise<any>> = {
   construction: () => import("../assets/icons/construction.svg"),
   book: () => import("../assets/icons/book.svg"),
   phone: () => import("../assets/icons/phone.svg"),
+  lupa: () => import("../assets/icons/lupa.svg"),
+  investigacion: () => import("../assets/icons/investigacion.svg"),
+  planta: () => import("../assets/icons/planta.svg"),
+  llaveagua: () => import("../assets/icons/llaveagua.svg"),
+  montana: () => import("../assets/icons/montana.svg"),
+  asesoria: () => import("../assets/icons/asesoria.svg"),
+  engrane: () => import("../assets/icons/engrane.svg"),
+  bosque: () => import("../assets/icons/bosque.svg"),
+  mapa: () => import("../assets/icons/mapa.svg"),
+  maestro: () => import("../assets/icons/maestro.svg"),
+  confiabilidad: () => import("../assets/icons/confiabilidad.svg"),
+  efectividad: () => import("../assets/icons/efectividad.svg"),
+  equidad: () => import("../assets/icons/equidad.svg"),
+  honestidad: () => import("../assets/icons/honestidad.svg"),
+  inovacion: () => import("../assets/icons/inovacion.svg"),
+  integracion: () => import("../assets/icons/integracion.svg"),
+  respeto: () => import("../assets/icons/respeto.svg"),
+  responsabilidad: () => import("../assets/icons/responsabilidad.svg"),
+  equipo: () => import("../assets/icons/equipo.svg"),
+  experiencia: () => import("../assets/icons/experiencia.svg"),
+  tramite: () => import("../assets/icons/tramite.svg"),
+  soluciones: () => import("../assets/icons/soluciones.svg"),
+  email: () => import("../assets/icons/email.svg"),
+  mision: () => import("../assets/icons/mision.svg"),
+  vision: () => import("../assets/icons/vision.svg"),
+  captacion: () => import("../assets/icons/captacion.svg"),
+  fabrica: () => import("../assets/icons/fabrica.svg"),
+  eolico: () => import("../assets/icons/eolico.svg"),
+  inventario: () => import("../assets/icons/inventario.svg"),
+  lluvia: () => import("../assets/icons/lluvia.svg"),
+  geografico: () => import("../assets/icons/geografico.svg"),
+  educacion: () => import("../assets/icons/educacion.svg"),
+  calendario: () => import("../assets/icons/calendario.svg"),
 } as const;
 
 // Validación de icono con mejor error handling

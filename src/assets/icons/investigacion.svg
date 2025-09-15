@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 32" fill="currentColor">
+    <!-- Lupa - coordenadas exactas originales -->
+    <path
+        d="M15 18C15 18.9193 15.1811 19.8295 15.5328 20.6788C15.8846 21.5281 16.4002 22.2997 17.0503 22.9497C17.7003 23.5998 18.4719 24.1154 19.3212 24.4672C20.1705 24.8189 21.0807 25 22 25C22.9193 25 23.8295 24.8189 24.6788 24.4672C25.5281 24.1154 26.2997 23.5998 26.9497 22.9497C27.5998 22.2997 28.1154 21.5281 28.4672 20.6788C28.8189 19.8295 29 18.9193 29 18C29 17.0807 28.8189 16.1705 28.4672 15.3212C28.1154 14.4719 27.5998 13.7003 26.9497 13.0503C26.2997 12.4002 25.5281 11.8846 24.6788 11.5328C23.8295 11.1811 22.9193 11 22 11C21.0807 11 20.1705 11.1811 19.3212 11.5328C18.4719 11.8846 17.7003 12.4002 17.0503 13.0503C16.4002 13.7003 15.8846 14.4719 15.5328 15.3212C15.1811 16.1705 15 17.0807 15 18Z"
+        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+    <!-- Mango de la lupa - coordenadas exactas originales -->
+    <path d="M31 27L27 23" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Libros/documentos - coordenadas exactas originales -->
+    <path
+        d="M3.25 20.5833C4.73219 19.7276 6.41352 19.2771 8.125 19.2771C9.83648 19.2771 11.5178 19.7276 13 20.5833C14.4822 19.7276 16.1635 19.2771 17.875 19.2771C19.5865 19.2771 21.2678 19.7276 22.75 20.5833"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path
+        d="M3.25 6.49999C4.73219 5.64425 6.41352 5.19374 8.125 5.19374C9.83648 5.19374 11.5178 5.64425 13 6.49999C14.4822 5.64425 16.1635 5.19374 17.875 5.19374C19.5865 5.19374 21.2678 5.64425 22.75 6.49999"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M3.25 6.5V20.5833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M13 6.5V20.5833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M22.75 6.5V20.5833" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+</svg>

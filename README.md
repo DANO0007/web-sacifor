@@ -59,17 +59,11 @@ Todos los comandos se ejecutan desde la raíz del proyecto, en una terminal:
 - **Dominio:** Namecheap
 - **Control de versiones:** Git/GitHub
 
-## 📱 Características
+## 📱 Características del proyecto
 
 - ✅ Diseño responsive
 - ✅ Carga rápida
-- ✅ SSL automático
-- ✅ CDN global
 - ✅ Menu móvil interactivo
-
-## 🚀 Despliegue automático
-
-El sitio se despliega automáticamente cuando se hace push a la rama `master` en GitHub.
 
 ## 📞 Contacto
 

@@ -6,42 +6,56 @@ import Icon from "../components/Icon.astro";
 import "../styles/pages.css";
 import { Image } from "astro:assets";
 import image5 from "../assets/image5.jpg";
+import image8 from "../assets/image8.jpg";
+import informaciongeografica from "../assets/informaciongeografica.png";
+import manifestaciones from "../assets/manifestaciones.png";
+import inventariosforestales from "../assets/inventariosforestales.jpg";
+import erosion from "../assets/erosion.png";
+import escurrimiento from "../assets/escurrimiento.png";
+import captaciondeagua from "../assets/captaciondeagua.png";
+
 // Configuración de talleres y cursos
 const workshops = [
   {
     title: "Sistemas de Información Geográfica",
     levels: "Básico e Intermedio",
     icon: "geografico" as const,
+    image: informaciongeografica,
     description: "Manejo de herramientas GIS para análisis territorial",
   },
   {
     title: "Elaboración de Manifestaciones de Impacto Ambiental",
     levels: "Especializado",
     icon: "fabrica" as const,
+    image: manifestaciones,
     description: "Metodología para estudios de impacto ambiental",
   },
   {
     title: "Diseño e implementación de inventarios forestales",
     levels: "Técnico",
     icon: "inventario" as const,
+    image: inventariosforestales,
     description: "Técnicas de medición y registro forestal",
   },
   {
     title: "Cálculo de erosión hídrica y eólica",
     levels: "Especializado",
     icon: "eolico" as const,
+    image: erosion,
     description: "Métodos de evaluación de erosión del suelo",
   },
   {
     title: "Cálculo de escurrimiento e infiltración",
     levels: "Técnico",
     icon: "lluvia" as const,
+    image: escurrimiento,
     description: "Análisis hidrológico de cuencas",
   },
   {
     title: "Sistemas de captación de agua de lluvia",
     levels: "Práctico",
     icon: "captacion" as const,
+    image: captaciondeagua,
     description: "Tecnologías para aprovechamiento pluvial",
   },
 ];
@@ -81,26 +95,54 @@ const description =
         <p class="section-subtitle">Programas de capacitación que ofrecemos.</p>
         <div class="content-grid">
           {
-            workshops.map((workshop) => (
+            workshops.map((workshop, index) => (
               <article class="content-card">
-                <div class="card-icon">
-                  <Icon
-                    name={workshop.icon}
-                    size={32}
-                    aria-label={`Icono de ${workshop.title}`}
-                  />
+                {/* Imagen del taller */}
+                {workshop.image && (
+                  <div class="card-image-container">
+                    <Image
+                      src={workshop.image}
+                      alt={`Imagen representativa de ${workshop.title} - SACIFOR`}
+                      class={`card-image card-image-talleres-${index + 1}`}
+                      width={800}
+                      height={500}
+                      format="webp"
+                      quality="max"
+                      loading="lazy"
+                      densities={[1, 1.5, 2]}
+                    />
+                  </div>
+                )}
+
+                <div class="card-content">
+                  <div class="card-icon">
+                    <Icon
+                      name={workshop.icon}
+                      size={workshop.image ? 32 : 32}
+                      aria-label={`Icono de ${workshop.title}`}
+                    />
+                  </div>
+                  <h3>{workshop.title}</h3>
+                  <div class="workshop-level">
+                    <strong>Nivel:</strong> {workshop.levels}
+                  </div>
+                  {/* <p>{workshop.description}</p> */}
                 </div>
-                <h3>{workshop.title}</h3>
-                <div class="workshop-level">
-                  <strong>Nivel:</strong> {workshop.levels}
-                </div>
-                {/* <p>{workshop.description}</p> */}
               </article>
             ))
           }
         </div>
       </div>
     </section>
+
+    <Image
+      src={image8}
+      alt="Vista aérea de paisaje natural capturada con drone - SACIFOR consultoría ambiental"
+      class="images image8"
+      width={1200}
+      quality={85}
+      loading="lazy"
+    />
 
     <!-- Cultura Ambiental -->
     <section class="environmental-culture" aria-labelledby="culture-title">

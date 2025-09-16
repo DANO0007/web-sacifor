@@ -6,12 +6,20 @@ import Icon from "../components/Icon.astro";
 import "../styles/pages.css";
 import { Image } from "astro:assets";
 import image4 from "../assets/image4.jpg";
+import nanocuencas from "../assets/nanocuencas.png";
+import sequia from "../assets/sequia.png";
+import proyectosambientales from "../assets/proyectosambientales.jpg";
+import obrashidraulicas from "../assets/obrashidraulicas.png";
+import cuenca from "../assets/cuenca.png";
+import asesoria from "../assets/asesoria.jpg";
+import otrosestudios from "../assets/otrosestudios.jpg";
 
 // Configuración de servicios organizados por categorías
 const serviceCategories = [
   {
     title: "Consultoría Ambiental",
     icon: "lupa" as const,
+    image: nanocuencas,
     services: [
       "Manifestaciones de Impacto Ambiental (Regional, Particular y Estatal)",
       "Dictámenes municipales en materia ambiental",
@@ -22,6 +30,7 @@ const serviceCategories = [
   {
     title: "Estudios Especializados",
     icon: "investigacion" as const,
+    image: sequia,
     services: [
       "Atlas de riesgo municipal",
       "Ordenamiento territorial",
@@ -32,6 +41,7 @@ const serviceCategories = [
   {
     title: "Estudios y Proyectos Ambientales",
     icon: "planta" as const,
+    image: proyectosambientales,
     services: [
       "Saneamiento mediante ecotecnias",
       "Conservación y uso sustentable de suelo y agua",
@@ -42,6 +52,7 @@ const serviceCategories = [
   {
     title: "Proyectos de Obras Hidráulicas",
     icon: "llaveagua" as const,
+    image: obrashidraulicas,
     services: [
       "Sistemas de agua potable y protección de fuentes",
       "Bordos de tierra compactada y ollas de captación de agua pluvial",
@@ -55,6 +66,7 @@ const serviceCategories = [
   {
     title: "Manejo Integrado de Cuencas",
     icon: "montana" as const,
+    image: cuenca,
     services: [
       "Diagnósticos participativos de cuencas",
       "Diseño e implementación de planes de manejo",
@@ -65,6 +77,7 @@ const serviceCategories = [
   {
     title: "Asesoría a Municipios",
     icon: "asesoria" as const,
+    image: asesoria,
     services: [
       "Sistema de Gestión Ambiental Municipal",
       "Plan de Ordenamiento Territorial Municipal",
@@ -76,6 +89,7 @@ const serviceCategories = [
   {
     title: "Otros Estudios y Proyectos",
     icon: "engrane" as const,
+    image: otrosestudios,
     services: [
       "Levantamientos topográficos",
       "Mecánica de suelos",
@@ -120,21 +134,38 @@ const description =
         <h2 id="categories-title" class="sr-only">Categorías de Servicios</h2>
         <div class="content-grid">
           {
-            serviceCategories.map((category) => (
+            serviceCategories.map((category, index) => (
               <article class="content-card">
-                <div class="card-icon">
-                  <Icon
-                    name={category.icon}
-                    size={88}
-                    aria-label={`Icono de ${category.title}`}
-                  />
+                {category.image && (
+                  <div class="card-image-container">
+                    <Image
+                      src={category.image}
+                      alt={`Imagen representativa de ${category.title} - SACIFOR`}
+                      class={`card-image card-image-${index + 1}`}
+                      width={800}
+                      height={500}
+                      quality="max"
+                      format="webp"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+
+                <div class="card-content">
+                  <div class="card-icon">
+                    <Icon
+                      name={category.icon}
+                      size={category.image ? 48 : 88}
+                      aria-label={`Icono de ${category.title}`}
+                    />
+                  </div>
+                  <h3>{category.title}</h3>
+                  <ul class="services-list">
+                    {category.services.map((service) => (
+                      <li>{service}</li>
+                    ))}
+                  </ul>
                 </div>
-                <h3>{category.title}</h3>
-                <ul class="services-list">
-                  {category.services.map((service) => (
-                    <li>{service}</li>
-                  ))}
-                </ul>
               </article>
             ))
           }

@@ -7,7 +7,8 @@ import "../styles/pages.css";
 import { Image } from "astro:assets";
 import image1 from "../assets/image1.jpg";
 import image2 from "../assets/image2.jpg";
-import image3 from "../assets/image3.jpg";
+import image7 from "../assets/image7.png";
+import image6 from "../assets/image6.jpg";
 
 // Configuración de servicios clave centralizada
 const keyServices = [
@@ -198,6 +199,15 @@ const whyChooseUs = [
       </div>
     </section>
 
+    <Image
+      src={image6}
+      alt="Vista aérea de paisaje natural capturada con drone - SACIFOR consultoría ambiental"
+      class="images image6"
+      width={1200}
+      quality={85}
+      loading="lazy"
+    />
+
     <!-- Valores Section -->
     <section class="values-section" aria-labelledby="values-title">
       <div class="content-container">
@@ -220,9 +230,9 @@ const whyChooseUs = [
     </section>
 
     <Image
-      src={image3}
+      src={image7}
       alt="Vista aérea de paisaje natural capturada con drone - SACIFOR consultoría ambiental"
-      class="images image3"
+      class="images image7"
       width={1200}
       quality={85}
       loading="lazy"

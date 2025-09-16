@@ -83,17 +83,131 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.image6 {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  object-position: bottom;
+  margin-bottom: var(--spacing-xl);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image7 {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  object-position: center 16%;
+  margin-bottom: var(--spacing-xl);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image8 {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  object-position: center 30%;
+  margin-bottom: var(--spacing-xl);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 .images:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos para imágenes de cards */
+.card-image-container {
+  width: calc(100% + 2 * var(--spacing-lg));
+  height: 340px;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+  background-color: var(--color-background-light);
+  margin: calc(-1 * var(--spacing-lg)) calc(-1 * var(--spacing-lg)) 0 calc(-1 * var(--spacing-lg));
+}
+
+/* Clase general para todas las imágenes de cards */
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto hover para las imágenes de cards */
+.content-card:hover .card-image {
+  transform: scale(1.05);
+}
+
+/* Clases específicas para posicionamiento individual de cada imagen */
+/* SECCIÓN PROYECTOS: .card-image-1 a .card-image-7 */
+.card-image-1 {
+  object-position: center 26%;
+}
+
+.card-image-2 {
+  object-position: 60% 50%;     /* Ejemplo: Un poco a la izquierda, 30% vertical */
+}
+
+.card-image-3 {
+  object-position: center 50%;
+}
+
+.card-image-4 {
+  object-position: 36% 30%;
+}
+
+.card-image-5 {
+  object-position: 0% 50%;
+}
+
+.card-image-6 {
+  object-position: 30% 50%;
+}
+
+.card-image-7 {
+  object-position: 90% 50%;
+}
+
+/* SECCIÓN INFORMACIÓN/TALLERES: .card-image-talleres-1 a .card-image-talleres-6 */
+.card-image-talleres-1 {
+  object-position: 6% 40%;
+}
+
+.card-image-talleres-2 {
+  object-position: 95% 50%;
+}
+
+.card-image-talleres-3 {
+  object-position: center 50%;
+}
+
+.card-image-talleres-4 {
+  object-position: 58% 35%;
+}
+
+.card-image-talleres-5 {
+  object-position: 6% 45%;
+}
+
+.card-image-talleres-6 {
+  object-position: 70% 56%;
+}
+
+/* Estilos para el contenido de cards con imagen */
+.card-content {
+  padding: var(--spacing-md);
 }
 
 /* Responsive para la imagenes */
 @media (max-width: 768px) {
   .images {
     height: 280px;
-    border-radius: 8px;
+    border-radius: 5px;
     margin-bottom: var(--spacing-lg);
+  }
+  
+  .card-image-container {
+    height: 160px;
   }
 }
 
@@ -101,6 +215,14 @@
   .images {
     height: 240px;
     margin-bottom: var(--spacing-md);
+  }
+  
+  .card-image-container {
+    height: 310px;
+  }
+  
+  .card-content {
+    padding: var(--spacing-sm);
   }
 }
 
